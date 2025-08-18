@@ -1,7 +1,12 @@
 /* stylelint-disable no-descending-specificity */
 .columns > div {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  gap: 24px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .columns img {
@@ -10,6 +15,22 @@
 
 .columns > div > div {
   order: 1;
+  flex: 1 1 0;
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 380px;
+  max-width: 340px;
+  box-sizing: border-box;
+  box-shadow: 0 2px 16px 0 rgb(0 0 0 / 3%);
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  aspect-ratio: 4/5;
 }
 
 .columns > div > .columns-img-col {
@@ -44,7 +65,6 @@
   padding: 0;
 }
 
-/* Remove top margin for perfect alignment */
 .columns.columns3 > div > div:first-child,
 .columns.columns3 > div > div:last-child {
   margin-top: 0;
@@ -65,7 +85,6 @@
   }
 }
 
-/* Left column */
 .columns.columns3 > div > div:first-child {
   flex: 1 1 0;
   display: flex;
@@ -98,7 +117,6 @@
   max-width: 540px;
 }
 
-/* Right column */
 .columns.columns3 > div > div:last-child {
   flex: 0 0 200px;
   display: flex;
@@ -109,7 +127,6 @@
   min-width: 190px;
 }
 
-/* Button stack */
 .columns.columns3 > div > div:last-child p {
   display: flex;
   flex-direction: column;
@@ -119,7 +136,6 @@
   padding: 0;
 }
 
-/* Button styles for links */
 .columns.columns3 > div > div:last-child p a {
   display: block;
   width: 196px;
@@ -149,4 +165,98 @@
   background: #fafafa;
   color: #000;
   text-decoration: none;
+}
+
+
+.columns {
+  background: #fff;
+  padding: 0;
+}
+
+/* Card row: 4 columns side by side */
+
+/* Card appearance for each column */
+
+/* Maintain aspect ratio for all cards */
+
+/* Vertically and horizontally center ALL content in first card as a visual unit */
+.columns > div > div:first-child {
+  justify-content: center;
+  align-items: center;
+  padding: 0 16px;
+}
+
+.columns > div > div:first-child > div,
+.columns > div > div:first-child > ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1 1 auto;
+  height: 100%;
+  gap: 24px;
+}
+
+/* Ensure each li is not spaced too far apart */
+.columns > div > div:first-child li {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Center button containers and standardize gap */
+.columns > div > div:first-child .button-container {
+  margin: 0 0 8px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Icon size and alignment in social column */
+.columns > div > div:first-child img {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  border-radius: 16px;
+  margin: 0 auto 4px;
+  display: block;
+}
+
+/* Remove list bullets and extra padding from all lists */
+.columns > div > div ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Center all content in cards and add some horizontal padding */
+.columns > div > div > * {
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  margin: 0;
+  padding: 0 12px;
+}
+
+/* Keep last three cards' content vertically centered */
+.columns > div > div:not(:first-child) {
+  justify-content: center;
+  align-items: center;
+  padding: 32px 12px;
+}
+
+/* Responsive: stack cards vertically on small screens */
+@media (width <= 900px) {
+  .columns > div {
+    flex-direction: column;
+    gap: 16px;
+    align-items: stretch;
+  }
+
+  .columns > div > div {
+    max-width: 100%;
+    min-height: 200px;
+    aspect-ratio: unset;
+  }
 }
