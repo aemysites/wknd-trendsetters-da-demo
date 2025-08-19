@@ -1,8 +1,8 @@
+/* stylelint-disable no-descending-specificity */
 .accordion details {
   border: 1px solid #dadada;
 }
 
-/* stylelint-disable-next-line no-descending-specificity */
 .accordion details + details {
   margin-top: 24px;
 }
@@ -58,4 +58,125 @@
 .accordion details[open] .accordion-item-body {
   border-top: 1px solid #dadada;
   background-color: var(--background-color);
+}
+
+
+.accordion.accordion34 {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  background: #fafaf6;
+  border-radius: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Accordion items: flush, no extra margin/padding */
+.accordion.accordion34 > details.accordion-item {
+  border: none;
+  border-bottom: 1px solid #e0e0e0;
+  margin: 0;
+  border-radius: 0;
+  background: #fafaf6;
+  padding: 0;
+}
+
+.accordion.accordion34 > details.accordion-item:last-child {
+  border-bottom: none;
+}
+
+/* Summary row: flex for label and chevron, minimal horizontal padding for edge alignment */
+.accordion.accordion34 > details.accordion-item > summary.accordion-item-label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  min-height: 48px;
+  padding: 0 16px;
+  background: #fafaf6;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  box-shadow: none;
+  font-family: "Instrument Sans", "Instrument Sans Fallback", sans-serif;
+  font-size: 15px;
+  color: #3b3b3b;
+  font-weight: 500;
+  transition: background 0.2s;
+  user-select: none;
+  gap: 0;
+  position: relative;
+}
+
+/* Remove summary highlight on focus/hover */
+.accordion.accordion34 > details.accordion-item > summary.accordion-item-label:focus,
+.accordion.accordion34 > details.accordion-item > summary.accordion-item-label:hover {
+  background: #fafaf6;
+}
+
+/* Hide default marker */
+.accordion.accordion34 > details.accordion-item > summary.accordion-item-label::-webkit-details-marker {
+  display: none;
+}
+
+/* Label text style: flex-grow and truncate */
+.accordion.accordion34 > details.accordion-item > summary.accordion-item-label > p {
+  margin: 0;
+  padding: 0;
+  flex: 1 1 0%;
+  font-family: "Instrument Sans", "Instrument Sans Fallback", sans-serif;
+  font-size: 15px;
+  color: #3b3b3b;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.3;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* Chevron: smaller and closer to right edge */
+
+.accordion.accordion34 > details.accordion-item > summary.accordion-item-label::after {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  width: 18px;
+  height: 18px;
+  transform: translateY(-50%);
+  background-color: #3b3b3b;
+  mask-image: url('data:image/svg+xml;utf8,<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.5 7.5L9 12L13.5 7.5" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+  mask-image: url('data:image/svg+xml;utf8,<svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.5 7.5L9 12L13.5 7.5" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+  background-repeat: no-repeat;
+  background-size: contain;
+  content: "";
+  pointer-events: none;
+}
+
+/* Accordion body styling for padding consistency */
+.accordion.accordion34 > details.accordion-item > .accordion-item-body {
+  padding: 16px 16px 24px;
+  background: #fafaf6;
+  font-family: "Instrument Sans", "Instrument Sans Fallback", sans-serif;
+  font-size: 15px;
+  color: #3b3b3b;
+  font-weight: 400;
+}
+
+/* Remove border-top in open state */
+.accordion.accordion34 > details.accordion-item[open] > .accordion-item-body {
+  border-top: none;
+  background: #fafaf6;
+}
+
+/* Responsive: ensure flush alignment on small screens */
+@media (width <= 600px) {
+  .accordion.accordion34 > details.accordion-item > summary.accordion-item-label,
+  .accordion.accordion34 > details.accordion-item > .accordion-item-body {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .accordion.accordion34 > details.accordion-item > summary.accordion-item-label::after {
+    right: 8px;
+  }
 }
